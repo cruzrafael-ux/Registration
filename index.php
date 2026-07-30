@@ -1,5 +1,9 @@
 <?php
-    echo "Hello World!"
+
+    include 'views/navigation.php';
+    
+    
+    echo "Welcome, have fun Registering!"
 
 ?>
 

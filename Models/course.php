@@ -59,7 +59,7 @@ class Course {
 function list_courses() {
     global $database;
     
-    $query = 'SELECT code, name, description, credits FROM courses';
+    $query = 'SELECT code, name, description, credits FROM course';
     
     $statement = $database->prepare($query);
     
@@ -102,8 +102,11 @@ function insert_course($course) {
 function update_course($course) {
     global $database;
     
-    $query = "update course set code = :code, name = :name, description = :description,"
-            . " credits = :credits";
+    $query = "UPDATE course "
+            . "SET credits = :credits,"
+            . " name = :name, "
+            . "description = :description "
+            . "WHERE code = :code";
     
     $statement = $database->prepare($query);
     $statement->bindValue(":code", $course->getCode());
